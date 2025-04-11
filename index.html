@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="btn">
+            <button onclick="showSection('textSection')">Text</button>
+            <button onclick="showSection('websiteSection')">Website</button>
+            <button onclick="showSection('imageSection')">Image</button>
+
+        </div>
+
+        <!-- Text QR Code Section -->
+        <section id="textSection">
+            <p>Enter your Text</p>
+            <textarea id="qrText" rows="4" cols="50"></textarea>
+            <div id="imgBox">
+                <img id="textQRImage" src="" alt="QR Code">
+            </div>
+            <button onclick="generateTextQR()">Generate QR Code</button>
+            <button onclick="deleteQR('textQRImage', 'qrText')">Delete QR Code</button>
+        </section>
+
+        <!-- Website QR Code Section -->
+        <section id="websiteSection" style="display: none;">
+            <h2>Enter Your URL</h2>
+            <input type="text" id="websiteInput" placeholder="Enter website URL">
+            <br>
+            <div id="imgBox">
+                <img id="websiteQRImage" src="" alt="QR Code">
+            </div>
+            <button onclick="generateWebsiteQR()">Generate QR Code</button>
+            <button onclick="deleteQR('websiteQRImage', 'websiteInput')">Delete QR Code</button>
+        </section>
+
+        <!-- Image QR Code Section -->
+        <section id="imageSection" style="display: none;">
+            <h2>Add Your Image</h2>
+            <input type="file" id="imageInput">
+            <br>
+            <div id="imgBox">
+                <img id="imageQRImage" src="" alt="QR Code">
+            </div>
+            <button onclick="generateImageQR('imageInput', 'imageQRImage')">Generate QR Code</button>
+            <button onclick="deleteQR('imageQRImage', 'imageInput')">Delete QR Code</button>
+        </section>
+
+
+    </div>
+    <script src="script.js"></script>
+    
+</body>
+
+</html>
